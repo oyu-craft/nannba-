@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <title>ボタン式 扉のロック</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="card-wrapper">
+    <svg class="outer-border-svg">
+        <rect id="svg-rect" class="outer-border-rect" x="2" y="2" width="calc(100% - 4px)" height="calc(100% - 4px)"></rect>
+    </svg>
+
+    <div class="container">
+        <h2>🔒 扉のロック</h2>
+        <div id="display">入力待ち...</div>
+
+        <div class="grid">
+            <button class="btn" onclick="pressButton('大')">大</button>
+            <button class="btn" onclick="pressButton('城')">城</button>
+            <button class="btn" onclick="pressButton('友')">友</button>
+            <button class="btn" onclick="pressButton('宇')">宇</button>
+            <button class="btn" onclick="pressButton('侑')">侑</button>
+            <button class="btn" onclick="pressButton('紀')">紀</button>
+            <button class="btn" onclick="pressButton('仁')">仁</button>
+            <button class="btn" onclick="pressButton('奈')">奈</button>
+            <button class="btn" onclick="pressButton('菜')">菜</button>
+        </div>
+
+        <button class="reset-btn" onclick="resetInput()">やり直す</button>
+        <div id="message"></div>
+    </div>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
