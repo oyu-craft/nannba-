@@ -1,4 +1,4 @@
-const secretSequence = ["２", "年", "８", "組"];
+const secretSequence = ["2", "年", "8", "組"];
 let currentInput = [];
 let totalLength = 0;
 
