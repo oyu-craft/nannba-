@@ -4,7 +4,7 @@
 }
 
 body {
-  background-color: #0d0d0d;
+  background-color: #0a0907;
   color: #fff;
   font-family: sans-serif;
   display: flex;
@@ -14,17 +14,17 @@ body {
   margin: 0;
 }
 
-/* --- カード外枠（重厚感のあるダークゴールド枠） --- */
+/* --- 外枠カード --- */
 .card-wrapper {
   position: relative;
-  padding: 6px;
-  background: #181510;
-  border-radius: 18px;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.9), 0 0 20px rgba(212, 175, 55, 0.2);
-  border: 1px solid #332a15;
+  padding: 8px;
+  background: #14110c;
+  border-radius: 20px;
+  box-shadow: 0 10px 35px rgba(0, 0, 0, 0.9), 0 0 15px rgba(180, 140, 40, 0.2);
+  border: 1px solid #3d3014;
 }
 
-/* --- 進捗ゲージSVG --- */
+/* --- SVG枠線（進行度の線） --- */
 .outer-border-svg {
   position: absolute;
   top: 0;
@@ -35,54 +35,59 @@ body {
   overflow: visible;
 }
 
-/* --- 青いラインをゴールドの発光ラインに変更 --- */
-.outer-border-rect {
+/* 進行度のライン：青から発光ゴールドに変更 */
+.outer-border, .outer-border-rect {
   fill: none;
-  stroke: #d4af37 !important; /* 青からゴールドに変更 */
-  stroke-width: 4;
-  transition: stroke-dashoffset 0.3s, stroke 0.3s, filter 0.3s;
+  stroke: #ffd700 !important; /* 金色の進行ライン */
+  stroke-width: 5;
+  transition: stroke-dashoffset 0.3s ease, stroke 0.3s ease, filter 0.3s ease;
   rx: 16;
-  filter: drop-shadow(0 0 8px rgba(255, 215, 0, 0.8)); /* ゴールドの発光 */
+  filter: drop-shadow(0 0 8px rgba(255, 215, 0, 0.9));
 }
 
-.outer-border-rect.success {
-  stroke: #ffd700 !important;
+.outer-border.success, .outer-border-rect.success {
+  stroke: #fff5a6 !important;
   stroke-dashoffset: 0 !important;
   filter: drop-shadow(0 0 15px #ffd700);
 }
 
-.outer-border-rect.error {
-  stroke: #dc3545 !important;
-  filter: drop-shadow(0 0 12px #dc3545);
+.outer-border.error, .outer-border-rect.error {
+  stroke: #ff4d4d !important;
+  filter: drop-shadow(0 0 12px #ff4d4d);
 }
 
-/* --- メインコンテナ --- */
+/* --- メインパネル --- */
 .container {
   text-align: center;
-  background-color: #1a1712;
+  background: linear-gradient(180deg, #1f1a12 0%, #120f0a 100%);
   padding: 30px;
-  border-radius: 12px;
-  box-shadow: inset 0 0 15px rgba(0, 0, 0, 0.8);
+  border-radius: 14px;
+  box-shadow: inset 0 0 20px rgba(0, 0, 0, 0.9);
   width: 320px;
   position: relative;
   z-index: 1;
-  border: 1px solid #4a3b1a;
+  border: 1px solid #5a461e;
 }
 
-/* --- 入力画面（液晶風ディスプレイ） --- */
+h2 {
+  color: #fcf6ba;
+  text-shadow: 0 2px 4px rgba(0,0,0,0.8);
+}
+
+/* --- 入力ディスプレイ --- */
 #display {
   font-size: 18px;
-  background-color: #0a0907;
-  color: #fcf6ba;
+  background-color: #050504;
+  color: #ffe89c;
   padding: 12px;
   border-radius: 6px;
-  letter-spacing: 2px;
+  letter-spacing: 3px;
   margin-bottom: 20px;
-  border: 1px solid #7a6123;
-  box-shadow: inset 0 0 8px rgba(0, 0, 0, 0.9);
+  border: 1px solid #8c6d27;
+  box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.95);
 }
 
-/* --- グリッドとゴールドボタン --- */
+/* --- ボタンレイアウト --- */
 .grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -90,35 +95,36 @@ body {
   margin: 20px 0;
 }
 
+/* ゴージャスな金プレート風ボタン */
 .btn {
   padding: 15px 0;
   font-size: 16px;
   font-weight: bold;
   border-radius: 8px;
-  border: 1px solid #8c6d27;
-  background: linear-gradient(145deg, #2a2215, #14100a);
-  color: #f3e5ab;
+  border: 1px solid #a37c27 !important;
+  background: linear-gradient(145deg, #3a2e1b, #1a140b) !important;
+  color: #fff3c4 !important;
   cursor: pointer;
-  box-shadow: 0 4px 6px rgba(0,0,0,0.5), inset 0 1px 0 rgba(255,235,170,0.2);
+  box-shadow: 0 4px 8px rgba(0,0,0,0.6), inset 0 1px 0 rgba(255,240,180,0.3);
   transition: all 0.15s ease;
 }
 
 .btn:hover {
-  background: linear-gradient(145deg, #3d311e, #1f1a10);
-  border-color: #d4af37;
-  color: #ffffff;
-  box-shadow: 0 0 10px rgba(212, 175, 55, 0.5);
+  background: linear-gradient(145deg, #524227, #2b2112) !important;
+  border-color: #ffd700 !important;
+  color: #ffffff !important;
+  box-shadow: 0 0 12px rgba(255, 215, 0, 0.6);
 }
 
 .btn:active {
-  transform: scale(0.96);
-  box-shadow: inset 0 2px 5px rgba(0,0,0,0.8);
+  transform: scale(0.95);
+  box-shadow: inset 0 2px 6px rgba(0,0,0,0.9);
 }
 
-/* --- やり直すボタン --- */
+/* リセットボタン */
 .reset-btn {
   width: 100%;
-  padding: 10px;
+  padding: 11px;
   margin-top: 10px;
   border-radius: 6px;
   border: 1px solid #8b2525;
@@ -130,7 +136,7 @@ body {
 
 .reset-btn:hover {
   background: linear-gradient(180deg, #661c1c, #380e0e);
-  box-shadow: 0 0 10px rgba(255, 85, 85, 0.4);
+  box-shadow: 0 0 10px rgba(255, 85, 85, 0.5);
 }
 
 #message {
