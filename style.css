@@ -1,204 +1,141 @@
-body {
-    background-color: #1a1a1a;
-    color: #fff;
-    font-family: sans-serif;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    margin: 0;
-}
-
-.card-wrapper {
-    position: relative;
-    padding: 6px;
-}
-
-.outer-border-svg {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    pointer-events: none;
-    overflow: visible;
-}
-
-.outer-border-rect {
-    fill: none;
-    stroke: #007bff;
-    stroke-width: 4;
-    transition: stroke-dashoffset 0.3s, stroke 0.3s, filter 0.3s;
-    rx: 16;
-}
-
-.outer-border-rect.success {
-    stroke: #00d2ff;
-    stroke-dashoffset: 0 !important;
-    filter: drop-shadow(0 0 12px #00d2ff);
-}
-
-.outer-border-rect.error {
-    stroke: #dc3545;
-    filter: drop-shadow(0 0 12px #dc3545);
-}
-
-.container {
-    text-align: center;
-    background-color: #2a2a2a;
-    padding: 30px;
-    border-radius: 12px;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.6);
-    width: 320px;
-    position: relative;
-    z-index: 1;
-}
-
-#display {
-    font-size: 18px;
-    background-color: #111;
-    padding: 12px;
-    border-radius: 6px;
-    letter-spacing: 2px;
-    margin-bottom: 20px;
-    border: 1px solid #444;
-}
-
-.grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 12px;
-    margin: 20px 0;
-}
-
-.btn {
-    padding: 15px 0;
-    font-size: 16px;
-    font-weight: bold;
-    border-radius: 8px;
-    border: none;
-    background-color: #3a3a3a;
-    color: #fff;
-    cursor: pointer;
-}
-
-.btn:hover { background-color: #505050; }
-
-.reset-btn {
-    width: 100%;
-    padding: 10px;
-    margin-top: 10px;
-    border-radius: 6px;
-    border: none;
-    background-color: #6c757d;
-    color: #fff;
-    cursor: pointer;
-}
-
-#message {
-    margin-top: 15px;
-    font-size: 18px;
-    font-weight: bold;
-    min-height: 27px;
-}
-/* --- 美術館風・金の額縁フレーム --- */
-.lock-container, .container, body { 
-  /* ロック画面全体を囲む要素に適応します */
+/* --- ベース設定 --- */
+*, *::before, *::after {
   box-sizing: border-box;
 }
 
-/* 金枠を付けたいメインの枠組み（例: #lock-board や .lock-container など） */
-.gold-frame {
-  padding: 24px;
-  background: #111; /* 背景をダークにして金を際立たせる */
-  border: 12px solid transparent;
-  border-image: linear-gradient(
-    45deg,
-    #bf953f,
-    #fcf6ba,
-    #b38728,
-    #fbf5b7,
-    #aa771c
-  ) 1;
-  box-shadow: 
-    0 0 15px rgba(0, 0, 0, 0.8),
-    inset 0 0 10px rgba(0, 0, 0, 0.7),
-    0 0 20px rgba(212, 175, 55, 0.3);
-  position: relative;
-  border-radius: 4px;
-}
-
-/* 内側に繊細な金色のダブルラインを追加 */
-.gold-frame::after {
-  content: '';
-  position: absolute;
-  top: 4px;
-  left: 4px;
-  right: 4px;
-  bottom: 4px;
-  border: 2px solid #d4af37;
-  pointer-events: none;
-  opacity: 0.8;
-}
-/* --- 全体背景：美術館のような重厚なダークトーン --- */
 body {
   background-color: #0d0d0d;
+  color: #fff;
+  font-family: sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  margin: 0;
 }
 
-/* --- カード外枠：暗めの高級感あるバックグラウンド --- */
+/* --- カード外枠（重厚感のあるダークゴールド枠） --- */
 .card-wrapper {
+  position: relative;
+  padding: 6px;
   background: #181510;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.8), 0 0 20px rgba(212, 175, 55, 0.2);
+  border-radius: 18px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.9), 0 0 20px rgba(212, 175, 55, 0.2);
   border: 1px solid #332a15;
 }
 
-/* --- 進捗ゲージ（青色→ゴージャスな金色の光ラインに変更） --- */
-.outer-border {
-  stroke: url(#gold-gradient) !important; /* 金色の光にする */
-  stroke: #d4af37; /* フォールバック用カラー */
-  stroke-width: 4px;
-  filter: drop-shadow(0 0 6px rgba(255, 215, 0, 0.8)); /* 金色に発光 */
+/* --- 進捗ゲージSVG --- */
+.outer-border-svg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  overflow: visible;
 }
 
-/* --- ダイヤル・入力領域 --- */
+/* --- 青いラインをゴールドの発光ラインに変更 --- */
+.outer-border-rect {
+  fill: none;
+  stroke: #d4af37 !important; /* 青からゴールドに変更 */
+  stroke-width: 4;
+  transition: stroke-dashoffset 0.3s, stroke 0.3s, filter 0.3s;
+  rx: 16;
+  filter: drop-shadow(0 0 8px rgba(255, 215, 0, 0.8)); /* ゴールドの発光 */
+}
+
+.outer-border-rect.success {
+  stroke: #ffd700 !important;
+  stroke-dashoffset: 0 !important;
+  filter: drop-shadow(0 0 15px #ffd700);
+}
+
+.outer-border-rect.error {
+  stroke: #dc3545 !important;
+  filter: drop-shadow(0 0 12px #dc3545);
+}
+
+/* --- メインコンテナ --- */
+.container {
+  text-align: center;
+  background-color: #1a1712;
+  padding: 30px;
+  border-radius: 12px;
+  box-shadow: inset 0 0 15px rgba(0, 0, 0, 0.8);
+  width: 320px;
+  position: relative;
+  z-index: 1;
+  border: 1px solid #4a3b1a;
+}
+
+/* --- 入力画面（液晶風ディスプレイ） --- */
 #display {
-  background: #0a0907;
+  font-size: 18px;
+  background-color: #0a0907;
   color: #fcf6ba;
+  padding: 12px;
+  border-radius: 6px;
+  letter-spacing: 2px;
+  margin-bottom: 20px;
   border: 1px solid #7a6123;
   box-shadow: inset 0 0 8px rgba(0, 0, 0, 0.9);
 }
 
-/* --- 各ボタン：重厚な黄金のプレート風 --- */
+/* --- グリッドとゴールドボタン --- */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+  margin: 20px 0;
+}
+
 .btn {
-  background: linear-gradient(145deg, #2a2215, #14100a) !important;
-  color: #f3e5ab !important;
-  border: 1px solid #8c6d27 !important;
-  box-shadow: 0 4px 6px rgba(0,0,0,0.5), inset 0 1px 0 rgba(255,235,170,0.2) !important;
+  padding: 15px 0;
+  font-size: 16px;
   font-weight: bold;
+  border-radius: 8px;
+  border: 1px solid #8c6d27;
+  background: linear-gradient(145deg, #2a2215, #14100a);
+  color: #f3e5ab;
+  cursor: pointer;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.5), inset 0 1px 0 rgba(255,235,170,0.2);
   transition: all 0.15s ease;
 }
 
-/* ボタンを押した・ホバーした時 */
 .btn:hover {
-  background: linear-gradient(145deg, #3d311e, #1f1a10) !important;
-  border-color: #d4af37 !important;
-  color: #ffffff !important;
-  box-shadow: 0 0 10px rgba(212, 175, 55, 0.5) !important;
+  background: linear-gradient(145deg, #3d311e, #1f1a10);
+  border-color: #d4af37;
+  color: #ffffff;
+  box-shadow: 0 0 10px rgba(212, 175, 55, 0.5);
 }
 
 .btn:active {
   transform: scale(0.96);
-  box-shadow: inset 0 2px 5px rgba(0,0,0,0.8) !important;
+  box-shadow: inset 0 2px 5px rgba(0,0,0,0.8);
 }
 
 /* --- やり直すボタン --- */
 .reset-btn {
-  background: linear-gradient(180deg, #4a1515, #260a0a) !important;
-  color: #ffcccc !important;
-  border: 1px solid #8b2525 !important;
+  width: 100%;
+  padding: 10px;
+  margin-top: 10px;
+  border-radius: 6px;
+  border: 1px solid #8b2525;
+  background: linear-gradient(180deg, #4a1515, #260a0a);
+  color: #ffcccc;
+  cursor: pointer;
+  font-weight: bold;
 }
 
 .reset-btn:hover {
-  background: linear-gradient(180deg, #661c1c, #380e0e) !important;
-  box-shadow: 0 0 10px rgba(255, 85, 85, 0.4) !important;
+  background: linear-gradient(180deg, #661c1c, #380e0e);
+  box-shadow: 0 0 10px rgba(255, 85, 85, 0.4);
+}
+
+#message {
+  margin-top: 15px;
+  font-size: 18px;
+  font-weight: bold;
+  min-height: 27px;
 }
