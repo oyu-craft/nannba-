@@ -101,3 +101,42 @@ body {
     font-weight: bold;
     min-height: 27px;
 }
+/* --- 美術館風・金の額縁フレーム --- */
+.lock-container, .container, body { 
+  /* ロック画面全体を囲む要素に適応します */
+  box-sizing: border-box;
+}
+
+/* 金枠を付けたいメインの枠組み（例: #lock-board や .lock-container など） */
+.gold-frame {
+  padding: 24px;
+  background: #111; /* 背景をダークにして金を際立たせる */
+  border: 12px solid transparent;
+  border-image: linear-gradient(
+    45deg,
+    #bf953f,
+    #fcf6ba,
+    #b38728,
+    #fbf5b7,
+    #aa771c
+  ) 1;
+  box-shadow: 
+    0 0 15px rgba(0, 0, 0, 0.8),
+    inset 0 0 10px rgba(0, 0, 0, 0.7),
+    0 0 20px rgba(212, 175, 55, 0.3);
+  position: relative;
+  border-radius: 4px;
+}
+
+/* 内側に繊細な金色のダブルラインを追加 */
+.gold-frame::after {
+  content: '';
+  position: absolute;
+  top: 4px;
+  left: 4px;
+  right: 4px;
+  bottom: 4px;
+  border: 2px solid #d4af37;
+  pointer-events: none;
+  opacity: 0.8;
+}
