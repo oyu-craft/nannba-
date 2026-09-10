@@ -70,8 +70,12 @@ body {
 }
 
 h2 {
+  font-size: 16px; /* 元の24px付近から少し小さく調整 */
   color: #fcf6ba;
   text-shadow: 0 2px 4px rgba(0,0,0,0.8);
+  margin-top: 5px;
+  margin-bottom: 15px;
+  letter-spacing: 1px; /* 少し文字間隔を広げてスタイリッシュに */
 }
 
 /* --- 入力ディスプレイ --- */
