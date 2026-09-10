@@ -1,9 +1,10 @@
 <!DOCTYPE html>
 <html lang="ja">
 <head>
-    <meta charset="UTF-8">
-    <title>ボタン式 扉のロック</title>
-    <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ボタン式 扉のロック</title>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
@@ -15,24 +16,24 @@
   <div class="container gold-frame">
     <h2>🔒 扉のロック</h2>
     <div id="display">入力待ち...</div>
-      
-        <div class="grid">
-            <button class="btn" onclick="pressButton('A')">A</button>
-            <button class="btn" onclick="pressButton('H')">H</button>
-            <button class="btn" onclick="pressButton('P')">P</button>
-            <button class="btn" onclick="pressButton('I')">I</button>
-            <button class="btn" onclick="pressButton('R')">R</button>
-            <button class="btn" onclick="pressButton('C')">C</button>
-            <button class="btn" onclick="pressButton('N')">N</button>
-            <button class="btn" onclick="pressButton('K')">K</button>
-            <button class="btn" onclick="pressButton('M')">M</button>
-        </div>
 
-        <button class="reset-btn" onclick="resetInput()">やり直す</button>
-        <div id="message"></div>
+    <div class="grid">
+      <button class="btn" onclick="pressButton('A')">A</button>
+      <button class="btn" onclick="pressButton('H')">H</button>
+      <button class="btn" onclick="pressButton('P')">P</button>
+      <button class="btn" onclick="pressButton('I')">I</button>
+      <button class="btn" onclick="pressButton('R')">R</button>
+      <button class="btn" onclick="pressButton('C')">C</button>
+      <button class="btn" onclick="pressButton('N')">N</button>
+      <button class="btn" onclick="pressButton('K')">K</button>
+      <button class="btn" onclick="pressButton('M')">M</button>
     </div>
+
+    <button class="reset-btn" onclick="resetInput()">やり直す</button>
+    <div id="message"></div>
+  </div>
 </div>
-    
+
 <script src="script.js"></script>
 </body>
 </html>
