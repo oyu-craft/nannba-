@@ -7,36 +7,32 @@
 </head>
 <body>
 
-<div class="card-wrapper">
-    <svg class="outer-border-svg">
-        <rect id="svg-rect" class="outer-border-rect" x="2" y="2" width="calc(100% - 4px)" height="calc(100% - 4px)"></rect>
-    </svg>
-    <!-- 例: classに gold-frame を追加 -->
-    <div class="lock-container gold-frame">
-  <!-- 9つのボタンなど -->
+<div クラス="カード包装紙 ">
+  <SVG クラス="外側の境界線SVG ">
+    <長方形 ID="svg-rect" クラス="外側の境界線 "x="2 "y="2 "幅="calc(100% - 4px) "身長="calc(100% - 4px) "></長方形>
+  </SVG>
+
+  <div クラス="容器 gold-frame">
+    <h2>🔒 扉のロック</h2>
+    <div ID="画面 ">入力待ち...</div>
+
+    <div クラス="グリッド ">
+      <ボタン クラス="ボタン "クリック時に="pressButton('A') ">A</ボタン>
+      <ボタン クラス="ボタン "クリック時に="pressButton('H') ">H</ボタン>
+      <ボタン クラス="ボタン "クリック時に="pressButton('P') ">P</ボタン>
+      <ボタン クラス="ボタン "クリック時に="pressButton('I') ">I</ボタン>
+      <ボタン クラス="ボタン "クリック時に="pressButton('R') ">R</ボタン>
+      <ボタン クラス="ボタン "クリック時に="pressButton('C') ">C</ボタン>
+      <ボタン クラス="ボタン "クリック時に="pressButton('N') ">N</ボタン>
+      <ボタン クラス="ボタン "クリック時に="pressButton('K') ">K</ボタン>
+      <ボタン クラス="ボタン "クリック時に="pressButton('M') ">M</ボタン>
     </div>
 
-    <div class="container">
-        <h2>🔒 扉のロック</h2>
-        <div id="display">入力待ち...</div>
-
-        <div class="grid">
-            <button class="btn" onclick="pressButton('A')">A</button>
-            <button class="btn" onclick="pressButton('H')">H</button>
-            <button class="btn" onclick="pressButton('P')">P</button>
-            <button class="btn" onclick="pressButton('I')">I</button>
-            <button class="btn" onclick="pressButton('R')">R</button>
-            <button class="btn" onclick="pressButton('C')">C</button>
-            <button class="btn" onclick="pressButton('N')">N</button>
-            <button class="btn" onclick="pressButton('K')">K</button>
-            <button class="btn" onclick="pressButton('M')">M</button>
-        </div>
-
-        <button class="reset-btn" onclick="resetInput()">やり直す</button>
-        <div id="message"></div>
-    </div>
+    <ボタン クラス="リセットボタン "クリック時に="resetInput() ">やり直す</ボタン>
+    <div ID="メッセージ "></div>
+  </div>
 </div>
-
+    
 <script src="script.js"></script>
 </body>
 </html>
