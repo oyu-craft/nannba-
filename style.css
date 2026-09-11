@@ -46,9 +46,9 @@ body {
 }
 
 .outer-border.success, .outer-border-rect.success {
-  stroke: #fff5a6 !important;
+  stroke: #00d2ff !important;
   stroke-dashoffset: 0 !important;
-  filter: drop-shadow(0 0 15px #ffd700);
+  filter: drop-shadow(0 0 15px #00d2ff);
 }
 
 .outer-border.error, .outer-border-rect.error {
