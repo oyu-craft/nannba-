@@ -113,11 +113,24 @@ h2 {
   transition: all 0.15s ease;
 }
 
+/* ホバー時のみ光らせる */
 .btn:hover {
-  background: linear-gradient(145deg, #524227, #2b2112) !important;
+  background: linear-gradient(145deg, #3d311e, #1f1a10) !important;
   border-color: #ffd700 !important;
   color: #ffffff !important;
-  box-shadow: 0 0 12px rgba(255, 215, 0, 0.6);
+  box-shadow: 0 0 12px rgba(255, 215, 0, 0.6) !important;
+}
+
+/* クリック後にフォーカスが残っても光らせない（重要） */
+.btn:focus {
+  outline: none;
+}
+
+.btn:focus:not(:hover) {
+  background: linear-gradient(145deg, #3a2e1b, #1a140b) !important;
+  border-color: #a37c27 !important;
+  color: #fff3c4 !important;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.6), inset 0 1px 0 rgba(255,240,180,0.3) !important;
 }
 
 .btn:active {
